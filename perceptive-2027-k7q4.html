@@ -122,42 +122,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
 }
 /* Phone and portrait tablet (<=860px): slides stack and scroll, tables become cards */
-@media (max-width:860px){
- html,body{height:auto;overflow-x:hidden;overflow-y:auto;background:var(--nw)}
- .deck{height:auto}
- .controls,.fullscreen-btn{display:none!important}
- .slide{position:relative;top:auto;left:auto;transform:none!important;opacity:1;pointer-events:auto;transition:none;width:100%;height:auto;min-height:0;padding:40px 20px 30px;overflow:visible;border-bottom:1px solid rgba(0,0,0,.08)}
- .slide.dark{border-bottom-color:rgba(255,255,255,.12)}
- .ttl{font-size:27px}.sub{font-size:16px}
- .h3{font-size:19px}.p,li,.call,.svc-d,.tl-t{font-size:16px}.small,.bigl{font-size:14px}
- .ft{position:relative;left:auto;right:auto;bottom:auto;margin-top:18px;flex-direction:column;gap:4px;font-size:12px}
- .cols,.stats,.svc,.thanks{flex-direction:column;gap:14px}
- .ag{grid-template-columns:1fr;grid-auto-flow:row;grid-template-rows:none}
- .ag-t{font-size:16px}
- .pt,.pt tbody,.pt tr,.pt td{display:block;width:100%}
- .pt thead{display:none}
- .pt tr{margin:0 0 10px;padding:10px 14px;border-radius:8px;background:#fff;border:1px solid var(--ps)}
- .pt td{padding:4px 0!important;border:0!important;text-align:right!important;background:transparent!important;font-size:15px;white-space:normal!important;overflow-wrap:anywhere}
- .pt td:first-child{text-align:left!important;font-weight:700;color:var(--df);font-size:16px}
- .pt td[data-label]::before{content:attr(data-label);float:left;margin-right:12px;font-weight:600;opacity:.7;text-align:left}
- .pt tr.tot,.pt tr.bench{background:rgba(184,82,42,.07);border-color:rgba(184,82,42,.3)}
- .pt tr.good{background:#E3EEE6}
- .pt td[style*="E3EEE6"]{background:#E3EEE6!important;border-radius:4px;padding:4px 6px!important}
- .pt.dk tr{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
- .pt.dk td:first-child{color:#fff}
- .pt.num1 td:first-child{width:auto}
- .big{font-size:34px}
- .slide.title{padding:0;min-height:100vh;display:flex;flex-direction:column}
- .t-right,.t-stripe{display:none}
- .t-green{width:100%;clip-path:none}
- .t-left{width:100%;height:auto;padding:56px 24px 24px}
- .t-left h1{font-size:34px}.t-sub{font-size:16px}.t-pres{font-size:14px}
- .t-brand{position:relative;bottom:auto;left:auto;margin-top:26px}
- .t-hero{position:relative;z-index:12;top:auto;left:auto;transform:none;width:auto;margin:10px 24px 40px;padding:24px;border-top:2px solid var(--rs);background:rgba(255,255,255,.05);border-radius:0 0 8px 8px}
- .t-client{font-size:30px}.t-for{font-size:14px}.t-conf{font-size:12px}
- .close-brand{position:relative;left:auto;bottom:auto;transform:none;margin-top:22px;justify-content:center;flex-wrap:wrap;white-space:normal}
- .tl-w{font-size:12px}
-}
+
 .call.dkcall{background:rgba(255,255,255,.06);color:rgba(255,255,255,.85);border-left-color:var(--rl)}
 
 .svc{max-width:960px}.svc-p{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin:0 auto 12px;border:3px solid #2A5240}.svc-c{text-align:center}
@@ -365,9 +330,9 @@ document.addEventListener('keydown',function(e){
 function toggleFullscreen(){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
 let tx=0;
 document.addEventListener('touchstart',function(e){tx=e.changedTouches[0].screenX;});
-document.addEventListener('touchend',function(e){if(window.matchMedia('(max-width: 860px)').matches)return;var d=e.changedTouches[0].screenX-tx;if(Math.abs(d)>50)nav(d<0?1:-1);});
+document.addEventListener('touchend',function(e){var d=e.changedTouches[0].screenX-tx;if(Math.abs(d)>50)nav(d<0?1:-1);});
 function rescale(){var s=Math.min(window.innerWidth/960,window.innerHeight/540,2)*0.88;document.documentElement.style.setProperty('--scale',s);}
-window.addEventListener('resize',rescale);rescale();
+window.addEventListener('resize',rescale);document.addEventListener('click',function(e){if(e.target.closest('button,a,.controls'))return;if(window.innerWidth<1000)nav(e.clientX>window.innerWidth/2?1:-1);});rescale();
 slides[0].classList.remove('active');
 var h=parseInt(location.hash.slice(1),10);go(h>0&&h<=total?h-1:0);
 slides.forEach(function(s,i){if(i!==cur)s.classList.remove('active');});
