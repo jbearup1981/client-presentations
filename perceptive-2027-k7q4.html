@@ -21,6 +21,8 @@ body{font-family:var(--body);color:var(--ch);-webkit-font-smoothing:antialiased}
 .slide.altp.dark::after{color:rgba(255,255,255,.88);background:rgba(255,255,255,.08) radial-gradient(circle at 11px 50%,var(--rl) 0 3px,transparent 3.5px);border-color:rgba(255,255,255,.22);box-shadow:none}
 .slide.altp .card,.slide.altp .fstep{box-shadow:0 1px 3px rgba(31,61,46,.06)}
 .slide.active{opacity:1;pointer-events:auto}
+.slide:not(.active){visibility:hidden;transition:none}
+.slide.active{visibility:visible;z-index:2;transition:opacity .35s ease}
 .slide.dark{background:var(--df);background-image:radial-gradient(ellipse at bottom right,rgba(184,82,42,.22) 0%,transparent 42%),radial-gradient(ellipse at top left,rgba(42,82,64,.9) 0%,transparent 45%)}
 .controls{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:16px;z-index:100;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);padding:8px 20px;border-radius:40px}
 .controls button{background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;font-size:18px;padding:4px 8px;font-family:var(--body)}
@@ -125,11 +127,12 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  @page{size:960px 540px;margin:0}
  html,body{overflow:visible;background:#fff;height:auto}
  .controls,.fullscreen-btn,aside.notes{display:none!important}
- .slide{position:relative;transform:none!important;opacity:1;top:auto;left:auto;page-break-after:always;break-after:page}
+ .slide{position:relative;transform:none!important;opacity:1;visibility:visible!important;top:auto;left:auto;page-break-after:always;break-after:page}
  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
 }
 /* Phone and portrait tablet (<=860px): slides stack and scroll, tables become cards */
 
+.call.dkcall b{color:#fff;font-weight:700}
 .call.dkcall{background:rgba(255,255,255,.06);color:rgba(255,255,255,.85);border-left-color:var(--rl)}
 
 .svc{max-width:960px}.svc-p{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin:0 auto 12px;border:3px solid #2A5240}.svc-c{text-align:center}
@@ -422,18 +425,18 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  <div class="ft"><span>Sources: PH renewal per-employee costs (G20 POS); Benefitter two-plan HSA pairs (G17 POS), 10/21</span><span>Perceptive Controls 2027 Options Review &middot; 20</span></div>
  
 </section>
-<section class="slide dark alt altp">
- <div class="hd"><div class="tag d">11 &middot; Alternative path</div><div class="ttl d">Open items before this is final</div><div class="sub d">One item needs Priority Health in writing; the rest are company decisions.</div></div>
+<section class="slide alt altp">
+ <div class="hd"><div class="tag">11 &middot; Alternative path</div><div class="ttl">Open items before this is final</div><div class="sub">One item needs Priority Health in writing; the rest are company decisions.</div></div>
  <div class="cols">
-  <div class="dcard"><span class="pill r">Priority Health</span><div class="h3 d">Confirm the POS buy-up in writing</div><p class="p d">Priority Health underwriting must confirm that a two-person HSA POS buy-up, and the plan count, are allowed for this group. Not confirmed yet.</p><p class="small d">Priority Health's POS rule for small groups: 65% of enrolled must live in Michigan.</p></div>
-  <div class="dcard"><span class="pill r">Perceptive</span><div class="h3 d">Decisions on your side</div><ul class="d">
+  <div class="card"><span class="pill r">Priority Health</span><div class="h3">Confirm the POS buy-up in writing</div><p class="p">Priority Health underwriting must confirm that a two-person HSA POS buy-up, and the plan count, are allowed for this group. Not confirmed yet.</p><p class="small">Priority Health's POS rule for small groups: 65% of enrolled must live in Michigan.</p></div>
+  <div class="card"><span class="pill r">Perceptive</span><div class="h3">Decisions on your side</div><ul>
    <li>Plan pair: S25 as the starting point, anywhere from S571 to G351</li>
    <li>HSA contribution levels for 2027</li>
    <li>Who qualifies for the POS buy-up</li>
    <li>Confirm corporate status for the owner HSA tax point</li></ul></div>
  </div>
- <div class="call dkcall mt"><b>Timing:</b> Priority Health paperwork is due Nov 13. We are asking Priority Health for written confirmation now.</div>
- <div class="ft d"><span>Source: PH plan-count research 10/21 (unverified); decisions and timeline on slide 22</span><span>Perceptive Controls 2027 Options Review &middot; 21</span></div>
+ <div class="call mt" style="background:rgba(255,255,255,.7)"><b>Timing:</b> Priority Health paperwork is due Nov 13. We are asking Priority Health for written confirmation now.</div>
+ <div class="ft"><span>Source: PH plan-count research 10/21; decisions and timeline on slide 22</span><span>Perceptive Controls 2027 Options Review &middot; 21</span></div>
  
 </section>
 
