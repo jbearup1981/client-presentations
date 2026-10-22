@@ -13,8 +13,9 @@ html,body{height:100%;overflow:hidden;background:#1a1a1a}
 body{font-family:var(--body);color:var(--ch);-webkit-font-smoothing:antialiased}
 .deck{width:100%;height:100%;position:relative}
 .slide{width:960px;height:540px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center center;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .7s cubic-bezier(.25,.1,.25,1);background:var(--nw);padding:38px 56px 34px;display:flex;flex-direction:column}
-.slide.altp:not(.dark){background:linear-gradient(165deg,#F3F6F7 0%,#E9EFF1 100%)}
-.slide.altp::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--fl) 0%,var(--sg) 70%,rgba(122,146,130,.25) 100%);z-index:3}
+.slide.altp:not(.dark){background:linear-gradient(160deg,#DCE6EE 0%,#CBD9E4 100%)}
+.slide.altp:not(.dark) .bt{background:rgba(255,255,255,.6)}
+.slide.altp::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--fl) 0%,var(--sg) 70%,rgba(122,146,130,.25) 100%);z-index:3}
 .slide.altp::after{content:"Alternative path";position:absolute;top:16px;right:22px;font-family:inherit;font-size:9px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;line-height:1;padding:6px 11px 6px 22px;border-radius:999px;color:var(--fl);background:rgba(255,255,255,.75) radial-gradient(circle at 11px 50%,var(--rs) 0 3px,transparent 3.5px);border:1px solid rgba(42,82,64,.2);box-shadow:0 1px 2px rgba(31,61,46,.06);z-index:3}
 .slide.altp.dark::before{background:linear-gradient(90deg,var(--rl),rgba(212,105,63,.2))}
 .slide.altp.dark::after{color:rgba(255,255,255,.88);background:rgba(255,255,255,.08) radial-gradient(circle at 11px 50%,var(--rl) 0 3px,transparent 3.5px);border-color:rgba(255,255,255,.22);box-shadow:none}
@@ -143,11 +144,11 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
 .bchart{margin-top:8px;background:#fff;border:1px solid var(--ps);border-radius:8px;padding:7px 12px 6px}
 .bhead{display:flex;justify-content:space-between;font-size:10.5px;font-weight:700;color:var(--df);margin-bottom:3px}
 .bkey{font-weight:500;color:var(--mute)}.bkey i{display:inline-block;width:9px;height:9px;border-radius:2px;margin:0 3px 0 10px;vertical-align:-1px}.k1{background:var(--fl)}.k2{background:var(--rl)}
-.bwrap{position:relative}
+.bwrap{position:relative;--blw:250px}
 .br{display:flex;align-items:center;height:16px;margin:2px 0}
-.bl{width:150px;flex:none;font-size:10.5px;color:var(--ch)}.bl span{color:var(--mute)}
+.bl{width:var(--blw);flex:none;font-size:10px;white-space:nowrap;color:var(--ch)}.bl span{color:var(--mute)}
 .bt{flex:1;height:12px;background:var(--ps);border-radius:3px;position:relative}
-.bf{height:100%;background:var(--fl);border-radius:3px;position:relative}.bf.up{background:var(--rl)}.bf.sel{box-shadow:0 0 0 2px rgba(184,82,42,.45)}
+.bf{height:100%;background:var(--fl);border-radius:3px;position:relative}.bf.up{background:var(--rl)}.bf.sel{box-shadow:0 0 0 2px rgba(184,82,42,.45)}.bf.sel span{left:auto;right:6px;margin-left:0;background:none;color:#fff}
 .bf span{position:absolute;left:100%;margin-left:5px;top:-1px;background:#fff;padding:0 3px;border-radius:2px;z-index:3;font-size:10px;font-weight:700;color:var(--df);white-space:nowrap}
 .bbase{position:absolute;z-index:1;top:-2px;bottom:-2px;border-left:2px dashed var(--rd)}
 .bbase span{position:absolute;top:-14px;left:4px;font-size:9.5px;font-weight:700;color:var(--rd);white-space:nowrap;background:#fff;padding:0 2px}
@@ -375,9 +376,9 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  <tr><td>G17</td><td class="n">$1,750/$3,500</td><td class="n">$5,000/$10,000</td><td class="n">$30,325.67</td><td class="n">$425,008.04</td><td class="n">+6.95%</td></tr><tr><td>G351</td><td class="n">$3,500/$7,000</td><td class="n">$4,000/$8,000</td><td class="n">$28,677.71</td><td class="n">$405,232.52</td><td class="n">+1.98%</td></tr><tr class="good"><td>S25 (starting point)</td><td class="n">$2,550/$5,100</td><td class="n">$8,700/$17,400</td><td class="n">$27,392.57</td><td class="n">$389,810.84</td><td class="n">&minus;1.90%</td></tr><tr><td>S35</td><td class="n">$3,500/$7,000</td><td class="n">$8,700/$17,400</td><td class="n">$26,070.33</td><td class="n">$373,943.96</td><td class="n">&minus;5.90%</td></tr><tr><td>S47</td><td class="n">$4,700/$9,400</td><td class="n">$8,700/$17,400</td><td class="n">$26,627.47</td><td class="n">$380,629.64</td><td class="n">&minus;4.21%</td></tr><tr><td>S571</td><td class="n">$5,700/$11,400</td><td class="n">$8,700/$17,400</td><td class="n">$25,950.09</td><td class="n">$372,501.08</td><td class="n">&minus;6.26%</td></tr>
  </tbody></table>
  <div class="bchart"><div class="bhead"><span>Annual cost incl. HSA, leanest to richest</span></div>
-  <div class="bwrap"><div class="br"><div class="bl"><b>S571</b> <span>$11,400 fam. ded.</span></div><div class="bt"><div class="bf" style="width:36.11%"><span>$372,501.08</span></div></div></div><div class="br"><div class="bl"><b>S47</b> <span>$9,400 fam. ded.</span></div><div class="bt"><div class="bf" style="width:45.14%"><span>$380,629.64</span></div></div></div><div class="br"><div class="bl"><b>S35</b> <span>$7,000 fam. ded.</span></div><div class="bt"><div class="bf" style="width:37.72%"><span>$373,943.96</span></div></div></div><div class="br"><div class="bl"><b>S25</b> <span>$5,100 fam. ded.</span></div><div class="bt"><div class="bf sel" style="width:55.35%"><span style="left:auto;right:3px;margin-left:0">$389,810.84</span></div></div></div><div class="br"><div class="bl"><b>G17</b> <span>$3,500 fam. ded.</span></div><div class="bt"><div class="bf up" style="width:94.45%"><span style="left:auto;right:3px;margin-left:0">$425,008.04</span></div></div></div><div class="br"><div class="bl"><b>G351</b> <span>$7,000 fam. ded.</span></div><div class="bt"><div class="bf up" style="width:72.48%"><span>$405,232.52</span></div></div></div><div class="bbase" style="left:calc(150px + (100% - 150px) * 0.6375)"><span>Renewal $397,371.20</span></div></div>
+  <div class="bwrap"><div class="br"><div class="bl"><b>S571</b> <span>Ded $5,700/$11,400 &middot; OOP $8,700/$17,400</span></div><div class="bt"><div class="bf" style="width:30.69%"><span>$372,501.08</span></div></div></div><div class="br"><div class="bl"><b>S47</b> <span>Ded $4,700/$9,400 &middot; OOP $8,700/$17,400</span></div><div class="bt"><div class="bf" style="width:38.37%"><span>$380,629.64</span></div></div></div><div class="br"><div class="bl"><b>S35</b> <span>Ded $3,500/$7,000 &middot; OOP $8,700/$17,400</span></div><div class="bt"><div class="bf" style="width:32.06%"><span>$373,943.96</span></div></div></div><div class="br"><div class="bl"><b>S25</b> <span>Ded $2,550/$5,100 &middot; OOP $8,700/$17,400</span></div><div class="bt"><div class="bf sel" style="width:47.05%"><span>$389,810.84</span></div></div></div><div class="br"><div class="bl"><b>G17</b> <span>Ded $1,750/$3,500 &middot; OOP $5,000/$10,000</span></div><div class="bt"><div class="bf up" style="width:80.28%"><span>$425,008.04</span></div></div></div><div class="br"><div class="bl"><b>G351</b> <span>Ded $3,500/$7,000 &middot; OOP $4,000/$8,000</span></div><div class="bt"><div class="bf up" style="width:61.61%"><span>$405,232.52</span></div></div></div><div class="bbase" style="left:calc(var(--blw) + (100% - var(--blw)) * 0.5419)"><span>Renewal $397,371.20</span></div></div>
   <div class="small" style="margin-top:2px"><span class="bkey" style="margin-right:8px"><i class="k1" style="margin-left:0"></i>under renewal <i class="k2"></i>over renewal</span>Axis starts at $340,000. Leanest to richest by family worst case. S25 is the starting point.</div></div>
- <div class="ft"><span>Source: Quinn's two-plan HSA pairs (Benefitter, 10/21); deductibles and OOP from PH plan designs and SBCs</span><span>Perceptive Controls 2027 Options Review &middot; 18</span></div>
+ <div class="ft"><span>Source: Benefitter two-plan HSA pairs, 10/21; deductibles and OOP from PH plan designs and SBCs</span><span>Perceptive Controls 2027 Options Review &middot; 18</span></div>
  
 </section>
 <section class="slide tight alt altp">
@@ -393,7 +394,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
   <div class="card"><div class="h3">Everyone gets HSA money</div><p class="p">It is the only option where all 19 get company HSA money. Even with that extra funding, the all-in annual cost lands close to the post-call option.</p></div>
   <div class="card"><div class="h3">Simpler</div><p class="p">Two plans, one design. The only difference is the network for those who need out-of-state access.</p></div>
  </div>
- <div class="ft"><span>Sources: slide 9; post-call scenarios 10/21; Quinn's two-plan HSA pairs 10/21</span><span>Perceptive Controls 2027 Options Review &middot; 19</span></div>
+ <div class="ft"><span>Sources: slide 9; post-call scenarios 10/21; Benefitter two-plan HSA pairs 10/21</span><span>Perceptive Controls 2027 Options Review &middot; 19</span></div>
  
 </section>
 <section class="slide tight alt altp">
@@ -418,7 +419,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
    <li><b>Lower worst case:</b> $10,000 family out-of-pocket max vs $18,000</li>
    <li><b>Same access:</b> keeps the out-of-state POS network</li></ul></div>
  </div>
- <div class="ft"><span>Sources: PH renewal per-employee costs (G20 POS); Quinn's two-plan HSA pairs (G17 POS), 10/21</span><span>Perceptive Controls 2027 Options Review &middot; 20</span></div>
+ <div class="ft"><span>Sources: PH renewal per-employee costs (G20 POS); Benefitter two-plan HSA pairs (G17 POS), 10/21</span><span>Perceptive Controls 2027 Options Review &middot; 20</span></div>
  
 </section>
 <section class="slide dark alt altp">
