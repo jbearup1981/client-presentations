@@ -13,6 +13,12 @@ html,body{height:100%;overflow:hidden;background:#1a1a1a}
 body{font-family:var(--body);color:var(--ch);-webkit-font-smoothing:antialiased}
 .deck{width:100%;height:100%;position:relative}
 .slide{width:960px;height:540px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center center;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .7s cubic-bezier(.25,.1,.25,1);background:var(--nw);padding:38px 56px 34px;display:flex;flex-direction:column}
+.slide.altp:not(.dark){background:linear-gradient(165deg,#F3F6F7 0%,#E9EFF1 100%)}
+.slide.altp::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--fl) 0%,var(--sg) 70%,rgba(122,146,130,.25) 100%);z-index:3}
+.slide.altp::after{content:"Alternative path";position:absolute;top:16px;right:22px;font-family:inherit;font-size:9px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;line-height:1;padding:6px 11px 6px 22px;border-radius:999px;color:var(--fl);background:rgba(255,255,255,.75) radial-gradient(circle at 11px 50%,var(--rs) 0 3px,transparent 3.5px);border:1px solid rgba(42,82,64,.2);box-shadow:0 1px 2px rgba(31,61,46,.06);z-index:3}
+.slide.altp.dark::before{background:linear-gradient(90deg,var(--rl),rgba(212,105,63,.2))}
+.slide.altp.dark::after{color:rgba(255,255,255,.88);background:rgba(255,255,255,.08) radial-gradient(circle at 11px 50%,var(--rl) 0 3px,transparent 3.5px);border-color:rgba(255,255,255,.22);box-shadow:none}
+.slide.altp .card,.slide.altp .fstep{box-shadow:0 1px 3px rgba(31,61,46,.06)}
 .slide.active{opacity:1;pointer-events:auto}
 .slide.dark{background:var(--df);background-image:radial-gradient(ellipse at bottom right,rgba(184,82,42,.22) 0%,transparent 42%),radial-gradient(ellipse at top left,rgba(42,82,64,.9) 0%,transparent 45%)}
 .controls{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:16px;z-index:100;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);padding:8px 20px;border-radius:40px}
@@ -299,7 +305,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  
 </section>
 
-<section class="slide alt">
+<section class="slide alt altp">
  <div class="hd"><div class="tag">11 &middot; Alternative path</div><div class="ttl">How we got here</div><div class="sub">Three steps from the idea on the call to the all-HSA path.</div></div>
  <div class="flow">
   <div class="fstep"><div class="fnum">1</div><div class="fk">The first idea on the call</div><div class="h3">Move Michigan traditional families to a traditional HMO</div><p class="p">S25 HSA for 13, G25 HMO for the 4 Michigan families, G20 POS for the owner and the out-of-state couple.</p><div class="fnum2">$28,788.75/mo <span>&minus;2.8% vs renewal</span></div></div>
@@ -312,7 +318,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  <div class="ft"><span>Sources: 10/21 review call; post-call scenarios 10/21 (scenario C-B, G25 HMO)</span><span>Perceptive Controls 2027 Options Review &middot; 14</span></div>
  
 </section>
-<section class="slide alt">
+<section class="slide alt altp">
  <div class="hd"><div class="tag">11 &middot; Alternative path</div><div class="ttl">Where we landed on the call</div><div class="sub">After the 10/21 review, the carrier and ancillary questions are settled. What is left is the Priority Health plan design and how the company funds it.</div></div>
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 18px">
   <div class="card warn"><div class="h3">Level funding: not this year</div><p class="p">Trustmark, Angle Health and Optimal were all marketed. None came back competitive because of underwriting. We will look again in future years as the group changes.</p></div>
@@ -324,7 +330,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  <div class="ft"><span>Source: 10/21 review call; marketing results on slides 7 and 8</span><span>Perceptive Controls 2027 Options Review &middot; 15</span></div>
  
 </section>
-<section class="slide tight alt">
+<section class="slide tight alt altp">
  <div class="hd"><div class="tag">11 &middot; Alternative path</div><div class="ttl">The strategy: everyone on an HSA plan</div><div class="sub">HSA and out-of-state access are not either/or. Priority Health offers the same HSA plan on an HMO network or on a point-of-service (POS) network.</div></div>
  <div class="cols" style="gap:18px">
   <div style="flex:.78">
@@ -344,7 +350,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  <div class="ft"><span>Source: Priority Health 1/1/2027 rates and SBCs via Benefitter (ZIP 49080), captured 10/21</span><span>Perceptive Controls 2027 Options Review &middot; 16</span></div>
  
 </section>
-<section class="slide tight alt">
+<section class="slide tight alt altp">
  <div class="hd"><div class="tag">11 &middot; Alternative path</div><div class="ttl">Why the traditional plan isn't paying off</div><div class="sub">Families who chose the traditional G20 plan pay more, carry more risk and give up the company's HSA money. Their dollars go much further on the HSA.</div></div>
  <table class="pt"><thead><tr><th>Same POS network, 2027</th><th class="n">Traditional G20 POS</th><th class="n">HSA POS G17</th><th class="n">HSA POS S25</th></tr></thead><tbody>
   <tr><td>Monthly premium, all 19 on the plan</td><td class="n">$34,262.76</td><td class="n">$32,791.18</td><td class="n">$29,551.57</td></tr>
@@ -362,7 +368,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  <div class="ft"><span>Source: Priority Health 1/1/2027 plan designs and rates via Benefitter, 10/21</span><span>Perceptive Controls 2027 Options Review &middot; 17</span></div>
  
 </section>
-<section class="slide tight alt">
+<section class="slide tight alt altp">
  <div class="hd"><div class="tag">11 &middot; Alternative path</div><div class="ttl">Your budget levers</div><div class="sub">Three dials: deductible, out-of-pocket max and HSA contribution. Each pair: HSA HMO for 17, HSA POS buy-up for 2, company HSA money for all 19 ($61,100 a year). Baseline: renewal plus today's $41,900 HSA money for 13.</div></div>
  <table class="pt" style="font-size:11px"><thead><tr><th>HSA plan pair</th><th class="n">Ded (S/F)</th><th class="n">OOP max (S/F)</th><th class="n">Monthly premium</th><th class="n">Annual incl. HSA</th><th class="n">vs renewal</th></tr></thead><tbody>
  <tr class="bench"><td>Renewal baseline (S25 HSA + G20 POS)</td><td class="n">S25 $2,550/$5,100<br>G20 $2,000/$4,000</td><td class="n">S25 $8,700/$17,400<br>G20 $9,000/$18,000</td><td class="n">$29,622.60</td><td class="n">$397,371.20</td><td class="n">benchmark</td></tr>
@@ -374,7 +380,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  <div class="ft"><span>Source: Quinn's two-plan HSA pairs (Benefitter, 10/21); deductibles and OOP from PH plan designs and SBCs</span><span>Perceptive Controls 2027 Options Review &middot; 18</span></div>
  
 </section>
-<section class="slide tight alt">
+<section class="slide tight alt altp">
  <div class="hd"><div class="tag">11 &middot; Alternative path</div><div class="ttl">Then vs now: how the options compare</div><div class="sub">From the recommendation in this deck, to the option we built after the call, to the all-HSA path.</div></div>
  <table class="pt"><thead><tr><th>Option</th><th>Plans</th><th class="n">HSA money for</th><th class="n">Monthly premium</th><th class="n">Premium vs renewal</th><th class="n">Annual incl. HSA</th></tr></thead><tbody>
   <tr class="bench"><td>Renewal as is</td><td>S25 HSA (13) + G20 POS (6)</td><td class="n">13</td><td class="n">$29,622.60</td><td class="n">benchmark</td><td class="n">$397,371.20</td></tr>
@@ -390,7 +396,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  <div class="ft"><span>Sources: slide 9; post-call scenarios 10/21; Quinn's two-plan HSA pairs 10/21</span><span>Perceptive Controls 2027 Options Review &middot; 19</span></div>
  
 </section>
-<section class="slide tight alt">
+<section class="slide tight alt altp">
  <div class="hd"><div class="tag">11 &middot; Alternative path</div><div class="ttl">Owner family example: why the HSA wins</div><div class="sub">One family that needs out-of-state access today, moving from the traditional G20 POS to the HSA G17 POS. Same out-of-state network either way.</div></div>
  <div class="cols">
   <div>
@@ -415,7 +421,7 @@ body.shownotes .slide:not(.active) aside.notes{display:none}
  <div class="ft"><span>Sources: PH renewal per-employee costs (G20 POS); Quinn's two-plan HSA pairs (G17 POS), 10/21</span><span>Perceptive Controls 2027 Options Review &middot; 20</span></div>
  
 </section>
-<section class="slide dark alt">
+<section class="slide dark alt altp">
  <div class="hd"><div class="tag d">11 &middot; Alternative path</div><div class="ttl d">Open items before this is final</div><div class="sub d">One item needs Priority Health in writing; the rest are company decisions.</div></div>
  <div class="cols">
   <div class="dcard"><span class="pill r">Priority Health</span><div class="h3 d">Confirm the POS buy-up in writing</div><p class="p d">Priority Health underwriting must confirm that a two-person HSA POS buy-up, and the plan count, are allowed for this group. Not confirmed yet.</p><p class="small d">Priority Health's POS rule for small groups: 65% of enrolled must live in Michigan.</p></div>
